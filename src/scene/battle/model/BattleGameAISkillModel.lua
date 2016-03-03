@@ -1,0 +1,67 @@
+----
+---- Created by IntelliJ IDEA.
+---- User: lqefn
+---- Date: 14-11-5
+---- Time: 上午11:53
+---- To change this template use File | Settings | File Templates.
+----
+--local BattleModel = nil
+---------------------------------------------------------------------------------
+--local BattleGameAISkillModel = class("BattleGameAISkillModel")
+--
+--function BattleGameAISkillModel:ctor(gameAIModel, skillID)
+--    self.gameAIModel = gameAIModel
+--    self.skillData = assert(BaseConfig.GetHeroSkill(skillID, 1))
+--
+--    -- 释放次数
+--    self.releaseCount = 0
+--
+--    -- 当前时间
+--    self.coolLeftTime = self.skillData.CD
+--    -- 触发机率
+--    self.releaseProbability = self.skillData.triggerProbability
+--end
+--
+--function BattleGameAISkillModel:reset()
+--    -- 释放次数
+--    self.releaseCount = 0
+--
+--    -- 当前时间
+--    self.coolLeftTime = self.skillData.CD
+--    -- 重置触发机率
+--    self.releaseProbability = self.skillData.triggerProbability
+--end
+--
+---- 技能冷却中
+--function BattleGameAISkillModel:inCooling()
+--    return self.coolLeftTime > 0
+--end
+--
+--function BattleGameAISkillModel:getProbability()
+--    return self.releaseProbability
+--end
+--
+--function BattleGameAISkillModel:incProbability(probability)
+--    assert(probability >= 0)
+--    self.releaseProbability = self.releaseProbability + probability
+--end
+--
+--function BattleGameAISkillModel:onRelease()
+--    self.coolLeftTime = self.skillData.CD
+--    self.releaseCount = self.releaseCount + 1
+--    self.releaseProbability = self.skillData.triggerProbability
+--end
+--
+--function BattleGameAISkillModel:update()
+--    if BattleModel == nil then
+--        BattleModel = require("scene.battle.model.BattleModel")
+--    end
+--
+--    self.coolLeftTime = self.coolLeftTime - BattleModel.TIME_UNIT
+--    if self.coolLeftTime < 0 then
+--        self.coolLeftTime = 0
+--    end
+--end
+--
+--return BattleGameAISkillModel
+--

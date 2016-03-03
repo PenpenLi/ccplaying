@@ -1,0 +1,38 @@
+DEV_SERVERS = {"http://10.0.1.86:9990"}
+TEST_SERVERS = {"http://42.62.46.67:9990", "http://test.ccplaying.com:9990"}
+PRO_SERVERS = {"http://42.62.47.202:9990", "http://pro.ccplaying.com:9990"}
+
+PAY_CALLBACK_URL =  "http://pro.ccplaying.com:9991/purchase_callback"
+
+LOGING_SERVERS = {"http://127.0.0.1:9990"}
+LOGIN_SERVER_ADDR = LOGING_SERVERS[1]
+
+DEV = 0
+TEST = 1
+PRO = 2
+
+CHAT_SERVER_DEBUG = true
+CHAT_SERVER_APPID = 1000179
+
+MODE = TEST
+
+-- 开发阶段可指定补丁版本号避免在线更新
+REBASE_MAJOR_VERSION = nil
+REBASE_PATCH_VERSION = nil
+
+if MODE == DEV then
+	LOGING_SERVERS = DEV_SERVERS
+	REBASE_MAJOR_VERSION = "1.0.13"
+	--REBASE_PATCH_VERSION = "1.0.14"
+elseif MODE == TEST then
+	LOGING_SERVERS = TEST_SERVERS
+	-- REBASE_MAJOR_VERSION = "1.0.13"
+	-- REBASE_PATCH_VERSION = "1.0.14"
+else
+	LOGING_SERVERS = PRO_SERVERS
+    CHAT_SERVER_DEBUG = false
+    -- CHAT_SERVER_APPID = 1000179
+end
+
+LOGIN_SERVER_ADDR = LOGING_SERVERS[1]
+print("登陆服务器: ", LOGIN_SERVER_ADDR)
